@@ -1,9 +1,6 @@
-import csv
-import json
-import os
-
 import datasets
 import pandas as pd
+from utils.bertfinetune_utils import build_alay_dict, translate_alay
 
 _CITATION = """\
 Unknown
@@ -82,9 +79,10 @@ class SentimentDataset(datasets.GeneratorBasedBuilder):
     def _generate_examples(self, filepath, split):
         df = pd.read_csv(filepath).reset_index()
         self._encode_labels(df)
+        alay_dict = build_alay_dict()
         for row in df.itertuples():
             entry = {
-                "text" : row.text_a,
+                "text" : translate_alay(row.text_a, alay_dict),
                 "label" : row.label_encoded
             }
             yield row.index, entry
