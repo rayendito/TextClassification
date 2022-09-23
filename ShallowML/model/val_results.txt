@@ -1,0 +1,14 @@
+Classification Report
+
+              precision    recall  f1-score   support
+
+          no       0.89      0.94      0.92      2093
+         yes       0.80      0.67      0.73       707
+
+    accuracy                           0.87      2800
+   macro avg       0.85      0.81      0.82      2800
+weighted avg       0.87      0.87      0.87      2800
+
+Averaged F1 Score: 0.728110599078341
+
+Inference time: 0.0552365779876709 seconds for 2800 samples
